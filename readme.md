@@ -1,7 +1,13 @@
 [![Build
 Status](https://travis-ci.org/Rodeoclash/ffmpeg-inline.svg?branch=master)](https://travis-ci.org/Rodeoclash/ffmpeg-inline)
 
+GeneralUI fork of the [ffmpeg-inline](https://travis-ci.org/Rodeoclash/ffmpeg-inline) project.
+
 Wrapper around a pexe based version of ffmpeg
+
+## Build
+
+`npm run build`: builds javascript file in `/dist/ffmpeg-inline.js`
 
 ## Usage
 
@@ -17,11 +23,18 @@ window.ffmpeg(globalOptions, inputFiles, convertOptions, outputFiles, {
     console.log('progress', progress)
   }
 }).then(function(results) {
-  results // array of file objects
+  let videoFile = results.files[0]
+
+  // 1. do something with video file (i.e. save it)
+  // 2. Cleanup memory when you are done (this is important)
+  saveFile(videoFile)
+    .then(() => {
+      results.cleanupFiles()
+    })
 })
 ```
 
-See examples folder for working versions.
+See examples folder for working version.
 
 ## Contributing
 
