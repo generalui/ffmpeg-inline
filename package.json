@@ -6,7 +6,8 @@
   "scripts": {
     "develop": "./node_modules/.bin/webpack-dev-server --port 8000 --progress --colors --inline --content-base ./examples/",
     "test": "karma start --single-run",
-    "test-watch": "karma start"
+    "test-watch": "karma start",
+    "build": "./node_modules/.bin/webpack --content-base ./examples/"
   },
   "author": "Samuel Richardson",
   "license": "ISC",
